@@ -1,0 +1,44 @@
+{
+  "name": "Favorite",
+  "type": "object",
+  "properties": {
+    "user_email": {
+      "type": "string",
+      "description": "Email di chi ha messo nei preferiti"
+    },
+    "username": {
+      "type": "string",
+      "description": "Username di chi ha messo nei preferiti"
+    },
+    "item_id": {
+      "type": "string",
+      "description": "ID dell'articolo (PortfolioItem o SponsoredListing)"
+    },
+    "item_type": {
+      "type": "string",
+      "enum": [
+        "portfolio_item",
+        "listing"
+      ],
+      "description": "Tipo di articolo"
+    },
+    "item_name": {
+      "type": "string",
+      "description": "Nome dell'articolo"
+    },
+    "item_image": {
+      "type": "string",
+      "description": "URL immagine articolo"
+    },
+    "owner_email": {
+      "type": "string",
+      "description": "Email del proprietario dell'articolo"
+    }
+  },
+  "required": [
+    "user_email",
+    "item_id",
+    "item_type",
+    "owner_email"
+  ]
+}

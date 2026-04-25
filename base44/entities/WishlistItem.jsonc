@@ -1,0 +1,92 @@
+{
+  "name": "WishlistItem",
+  "type": "object",
+  "properties": {
+    "sneaker_name": {
+      "type": "string",
+      "description": "Nome della sneaker desiderata"
+    },
+    "brand": {
+      "type": "string",
+      "description": "Brand della sneaker"
+    },
+    "sneaker_image": {
+      "type": "string",
+      "description": "URL immagine sneaker"
+    },
+    "sneaker_id": {
+      "type": "string",
+      "description": "ID sneaker nel catalogo (se presente)"
+    },
+    "target_price": {
+      "type": "number",
+      "description": "Prezzo target a cui acquistare"
+    },
+    "current_price": {
+      "type": "number",
+      "description": "Prezzo di mercato attuale"
+    },
+    "size": {
+      "type": "string",
+      "description": "Taglia desiderata (EU)"
+    },
+    "priority": {
+      "type": "string",
+      "enum": [
+        "alta",
+        "media",
+        "bassa"
+      ],
+      "default": "media",
+      "description": "Priorit\u00e0 di acquisto"
+    },
+    "notes": {
+      "type": "string",
+      "description": "Note personali"
+    }
+  },
+  "required": [
+    "sneaker_name"
+  ],
+  "rls": {
+    "create": {
+      "created_by": "{{user.email}}"
+    },
+    "read": {
+      "$or": [
+        {
+          "created_by": "{{user.email}}"
+        },
+        {
+          "user_condition": {
+            "role": "admin"
+          }
+        }
+      ]
+    },
+    "update": {
+      "$or": [
+        {
+          "created_by": "{{user.email}}"
+        },
+        {
+          "user_condition": {
+            "role": "admin"
+          }
+        }
+      ]
+    },
+    "delete": {
+      "$or": [
+        {
+          "created_by": "{{user.email}}"
+        },
+        {
+          "user_condition": {
+            "role": "admin"
+          }
+        }
+      ]
+    }
+  }
+}

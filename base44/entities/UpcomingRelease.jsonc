@@ -1,0 +1,76 @@
+{
+  "name": "UpcomingRelease",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "Nome della sneaker in uscita"
+    },
+    "brand": {
+      "type": "string",
+      "enum": [
+        "Nike",
+        "Adidas",
+        "Jordan",
+        "New Balance",
+        "Yeezy",
+        "Puma",
+        "Asics",
+        "Converse",
+        "Vans",
+        "Other"
+      ],
+      "description": "Brand della sneaker"
+    },
+    "release_date": {
+      "type": "string",
+      "format": "date",
+      "description": "Data di rilascio"
+    },
+    "image_url": {
+      "type": "string",
+      "description": "URL immagine sneaker"
+    },
+    "retail_price": {
+      "type": "number",
+      "description": "Prezzo retail previsto in EUR"
+    },
+    "description": {
+      "type": "string",
+      "description": "Descrizione del modello"
+    },
+    "resell_platforms": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "vinted",
+          "ebay",
+          "subito",
+          "wallapop",
+          "depop"
+        ]
+      },
+      "description": "Piattaforme dove sar\u00e0 disponibile"
+    },
+    "hype_level": {
+      "type": "string",
+      "enum": [
+        "low",
+        "medium",
+        "high",
+        "very_high"
+      ],
+      "description": "Livello di hype previsto"
+    },
+    "source": {
+      "type": "string",
+      "description": "Fonte dei dati (es. Sneaker News, Hypebeast)"
+    }
+  },
+  "required": [
+    "name",
+    "brand",
+    "release_date"
+  ]
+}

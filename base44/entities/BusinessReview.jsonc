@@ -1,0 +1,65 @@
+{
+  "name": "BusinessReview",
+  "type": "object",
+  "properties": {
+    "business_id": {
+      "type": "string",
+      "description": "ID dell'account business"
+    },
+    "business_name": {
+      "type": "string",
+      "description": "Nome del business"
+    },
+    "reviewer_email": {
+      "type": "string",
+      "description": "Email di chi ha lasciato la recensione"
+    },
+    "reviewer_name": {
+      "type": "string",
+      "description": "Nome di chi ha lasciato la recensione"
+    },
+    "rating": {
+      "type": "number",
+      "description": "Voto da 1 a 5"
+    },
+    "comment": {
+      "type": "string",
+      "description": "Testo della recensione"
+    }
+  },
+  "required": [
+    "business_id",
+    "reviewer_email",
+    "rating"
+  ],
+  "rls": {
+    "create": {
+      "data.reviewer_email": "{{user.email}}"
+    },
+    "read": {},
+    "update": {
+      "$or": [
+        {
+          "data.reviewer_email": "{{user.email}}"
+        },
+        {
+          "user_condition": {
+            "role": "admin"
+          }
+        }
+      ]
+    },
+    "delete": {
+      "$or": [
+        {
+          "data.reviewer_email": "{{user.email}}"
+        },
+        {
+          "user_condition": {
+            "role": "admin"
+          }
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,85 @@
+{
+  "name": "UserProfile",
+  "type": "object",
+  "properties": {
+    "user_email": {
+      "type": "string",
+      "description": "Email dell'utente (unique)"
+    },
+    "account_type": {
+      "type": "string",
+      "enum": [
+        "privato",
+        "business"
+      ],
+      "default": "privato",
+      "description": "Tipo di account: privato o business"
+    },
+    "username": {
+      "type": "string",
+      "description": "Username pubblico"
+    },
+    "wardrobe_name": {
+      "type": "string",
+      "description": "Nome personalizzato dell'armadio"
+    },
+    "bio": {
+      "type": "string",
+      "description": "Biografia breve"
+    },
+    "avatar_url": {
+      "type": "string",
+      "description": "URL avatar"
+    },
+    "cover_url": {
+      "type": "string",
+      "description": "URL immagine di copertina del profilo"
+    },
+    "location": {
+      "type": "string",
+      "description": "Citt\u00e0/Paese"
+    },
+    "instagram_handle": {
+      "type": "string",
+      "description": "Handle Instagram (senza @)"
+    },
+    "is_premium": {
+      "type": "boolean",
+      "default": false,
+      "description": "Utente con abbonamento Premium attivo"
+    }
+  },
+  "required": [
+    "user_email"
+  ],
+  "rls": {
+    "create": {
+      "data.user_email": "{{user.email}}"
+    },
+    "read": {},
+    "update": {
+      "$or": [
+        {
+          "data.user_email": "{{user.email}}"
+        },
+        {
+          "user_condition": {
+            "role": "admin"
+          }
+        }
+      ]
+    },
+    "delete": {
+      "$or": [
+        {
+          "data.user_email": "{{user.email}}"
+        },
+        {
+          "user_condition": {
+            "role": "admin"
+          }
+        }
+      ]
+    }
+  }
+}

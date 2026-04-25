@@ -1,0 +1,85 @@
+{
+  "name": "SponsoredListing",
+  "type": "object",
+  "properties": {
+    "seller_email": {
+      "type": "string",
+      "description": "Email del venditore"
+    },
+    "seller_name": {
+      "type": "string",
+      "description": "Nome del venditore"
+    },
+    "sneaker_name": {
+      "type": "string",
+      "description": "Nome della sneaker in vendita"
+    },
+    "sneaker_image": {
+      "type": "string",
+      "description": "URL immagine"
+    },
+    "brand": {
+      "type": "string",
+      "description": "Brand"
+    },
+    "size": {
+      "type": "string",
+      "description": "Taglia EU"
+    },
+    "condition": {
+      "type": "string",
+      "enum": [
+        "deadstock",
+        "vnds",
+        "used_good",
+        "used_fair"
+      ],
+      "default": "deadstock"
+    },
+    "asking_price": {
+      "type": "number",
+      "description": "Prezzo richiesto in EUR"
+    },
+    "platform": {
+      "type": "string",
+      "enum": [
+        "vinted",
+        "ebay",
+        "subito",
+        "wallapop",
+        "depop",
+        "direct",
+        "other"
+      ],
+      "description": "Piattaforma di vendita"
+    },
+    "listing_url": {
+      "type": "string",
+      "description": "Link all'annuncio"
+    },
+    "description": {
+      "type": "string",
+      "description": "Descrizione aggiuntiva"
+    },
+    "is_active": {
+      "type": "boolean",
+      "default": true,
+      "description": "Se l'annuncio \u00e8 attivo"
+    },
+    "is_sponsored": {
+      "type": "boolean",
+      "default": false,
+      "description": "Se \u00e8 un annuncio sponsorizzato (appare in cima)"
+    },
+    "views": {
+      "type": "number",
+      "default": 0,
+      "description": "Numero di visualizzazioni"
+    }
+  },
+  "required": [
+    "sneaker_name",
+    "asking_price",
+    "platform"
+  ]
+}

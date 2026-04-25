@@ -1,0 +1,64 @@
+{
+  "name": "BusinessAccount",
+  "type": "object",
+  "properties": {
+    "owner_email": {
+      "type": "string",
+      "description": "Email del proprietario dell'account business"
+    },
+    "business_name": {
+      "type": "string",
+      "description": "Nome dell'attivit\u00e0"
+    },
+    "business_type": {
+      "type": "string",
+      "enum": [
+        "negozio",
+        "reseller",
+        "sneaker_boutique",
+        "dropshipper",
+        "altro"
+      ],
+      "description": "Tipo di attivit\u00e0"
+    },
+    "description": {
+      "type": "string",
+      "description": "Descrizione dell'attivit\u00e0"
+    },
+    "logo_url": {
+      "type": "string",
+      "description": "URL logo dell'attivit\u00e0"
+    },
+    "city": {
+      "type": "string",
+      "description": "Citt\u00e0 dell'attivit\u00e0"
+    },
+    "website": {
+      "type": "string",
+      "description": "Sito web"
+    },
+    "instagram_handle": {
+      "type": "string",
+      "description": "Handle Instagram business"
+    },
+    "whatsapp": {
+      "type": "string",
+      "description": "Numero WhatsApp business"
+    },
+    "is_verified": {
+      "type": "boolean",
+      "default": false,
+      "description": "Account verificato dalla piattaforma"
+    },
+    "is_active": {
+      "type": "boolean",
+      "default": true,
+      "description": "Account attivo"
+    }
+  },
+  "required": [
+    "owner_email",
+    "business_name",
+    "business_type"
+  ]
+}

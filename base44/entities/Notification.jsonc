@@ -1,0 +1,46 @@
+{
+  "name": "Notification",
+  "type": "object",
+  "properties": {
+    "user_email": {
+      "type": "string",
+      "description": "Email del destinatario"
+    },
+    "type": {
+      "type": "string",
+      "enum": [
+        "price_spike",
+        "price_drop",
+        "new_listing"
+      ],
+      "description": "Tipo di notifica"
+    },
+    "title": {
+      "type": "string",
+      "description": "Titolo notifica"
+    },
+    "body": {
+      "type": "string",
+      "description": "Testo notifica"
+    },
+    "link": {
+      "type": "string",
+      "description": "Link di navigazione"
+    },
+    "is_read": {
+      "type": "boolean",
+      "default": false,
+      "description": "Se \u00e8 stata letta"
+    },
+    "sneaker_image": {
+      "type": "string",
+      "description": "URL immagine sneaker associata"
+    }
+  },
+  "required": [
+    "user_email",
+    "type",
+    "title",
+    "body"
+  ]
+}

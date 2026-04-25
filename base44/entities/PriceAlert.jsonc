@@ -1,0 +1,42 @@
+{
+  "name": "PriceAlert",
+  "type": "object",
+  "properties": {
+    "sneaker_id": {
+      "type": "string",
+      "description": "ID della sneaker"
+    },
+    "sneaker_name": {
+      "type": "string",
+      "description": "Nome della sneaker"
+    },
+    "alert_type": {
+      "type": "string",
+      "enum": [
+        "price_above",
+        "price_below",
+        "change_percent"
+      ],
+      "description": "Tipo di alert"
+    },
+    "target_value": {
+      "type": "number",
+      "description": "Valore target per l'alert"
+    },
+    "is_active": {
+      "type": "boolean",
+      "default": true,
+      "description": "Se l'alert \u00e8 attivo"
+    },
+    "triggered": {
+      "type": "boolean",
+      "default": false,
+      "description": "Se l'alert \u00e8 stato triggerato"
+    }
+  },
+  "required": [
+    "sneaker_name",
+    "alert_type",
+    "target_value"
+  ]
+}

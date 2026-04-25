@@ -1,0 +1,58 @@
+{
+  "name": "PortfolioItem",
+  "type": "object",
+  "properties": {
+    "sneaker_id": {
+      "type": "string",
+      "description": "ID della sneaker nel catalogo"
+    },
+    "sneaker_name": {
+      "type": "string",
+      "description": "Nome della sneaker"
+    },
+    "sneaker_image": {
+      "type": "string",
+      "description": "URL immagine sneaker"
+    },
+    "brand": {
+      "type": "string",
+      "description": "Brand della sneaker"
+    },
+    "size": {
+      "type": "string",
+      "description": "Taglia (EU)"
+    },
+    "condition": {
+      "type": "string",
+      "enum": [
+        "deadstock",
+        "vnds",
+        "used_good",
+        "used_fair"
+      ],
+      "default": "deadstock",
+      "description": "Condizione della sneaker"
+    },
+    "purchase_price": {
+      "type": "number",
+      "description": "Prezzo di acquisto in EUR"
+    },
+    "purchase_date": {
+      "type": "string",
+      "format": "date",
+      "description": "Data di acquisto"
+    },
+    "current_value": {
+      "type": "number",
+      "description": "Valore di mercato attuale in EUR"
+    },
+    "notes": {
+      "type": "string",
+      "description": "Note personali"
+    }
+  },
+  "required": [
+    "sneaker_name",
+    "purchase_price"
+  ]
+}

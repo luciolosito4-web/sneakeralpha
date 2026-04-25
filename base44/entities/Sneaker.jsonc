@@ -1,0 +1,142 @@
+{
+  "name": "Sneaker",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "Nome del modello sneaker"
+    },
+    "brand": {
+      "type": "string",
+      "enum": [
+        "Nike",
+        "Adidas",
+        "Jordan",
+        "New Balance",
+        "Yeezy",
+        "Puma",
+        "Asics",
+        "Converse",
+        "Vans",
+        "Other"
+      ],
+      "description": "Brand della sneaker"
+    },
+    "sku": {
+      "type": "string",
+      "description": "Codice SKU/style code"
+    },
+    "image_url": {
+      "type": "string",
+      "description": "URL immagine sneaker"
+    },
+    "retail_price": {
+      "type": "number",
+      "description": "Prezzo retail originale in EUR"
+    },
+    "current_price": {
+      "type": "number",
+      "description": "Prezzo di mercato attuale in EUR"
+    },
+    "price_change_24h": {
+      "type": "number",
+      "description": "Variazione prezzo percentuale ultime 24h"
+    },
+    "price_change_7d": {
+      "type": "number",
+      "description": "Variazione prezzo percentuale ultimi 7 giorni"
+    },
+    "price_change_30d": {
+      "type": "number",
+      "description": "Variazione prezzo percentuale ultimi 30 giorni"
+    },
+    "price_history": {
+      "type": "array",
+      "description": "Storico prezzi (ultimi mesi)",
+      "items": {
+        "type": "object",
+        "properties": {
+          "date": {
+            "type": "string"
+          },
+          "price": {
+            "type": "number"
+          }
+        }
+      }
+    },
+    "volume_30d": {
+      "type": "number",
+      "description": "Volume vendite ultimi 30 giorni"
+    },
+    "volatility": {
+      "type": "string",
+      "enum": [
+        "low",
+        "medium",
+        "high"
+      ],
+      "description": "Livello di volatilit\u00e0"
+    },
+    "release_date": {
+      "type": "string",
+      "format": "date",
+      "description": "Data di release"
+    },
+    "colorway": {
+      "type": "string",
+      "description": "Colorway della sneaker"
+    },
+    "category": {
+      "type": "string",
+      "enum": [
+        "trending",
+        "rising",
+        "stable",
+        "declining"
+      ],
+      "description": "Categoria di trend attuale"
+    },
+    "ai_prediction": {
+      "type": "object",
+      "description": "Previsione AI",
+      "properties": {
+        "predicted_price_3m": {
+          "type": "number"
+        },
+        "predicted_price_6m": {
+          "type": "number"
+        },
+        "predicted_price_12m": {
+          "type": "number"
+        },
+        "growth_percent": {
+          "type": "number"
+        },
+        "risk_level": {
+          "type": "string",
+          "enum": [
+            "low",
+            "medium",
+            "high"
+          ]
+        },
+        "recommendation": {
+          "type": "string",
+          "enum": [
+            "buy",
+            "hold",
+            "sell"
+          ]
+        },
+        "confidence": {
+          "type": "number"
+        }
+      }
+    }
+  },
+  "required": [
+    "name",
+    "brand"
+  ]
+}
